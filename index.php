@@ -64,3 +64,7 @@ require 'db_conn.php';
         </div>
 </body>
 </html>
+
+<!-- php -S localhost:8000 -->
+
+<!-- min 17:13 -->
