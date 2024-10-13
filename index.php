@@ -41,10 +41,22 @@ require 'db_conn.php';
 
                         <span id="<?= $todo['id'];?>" 
                         class="remove-to-do">x</span>
-                        <input type="checkbox">
-                        <h2><?= $todo['title']?></h2>
+
+                        <?php if($todo['cheked']) {  ?>
+
+                            <input type="checkbox" class="check-box" checked/>
+                            <h2 class="checked"><?= $todo['title']?></h2>
+                           
+
+                        <?php } else{?>
+
+                            <input type="checkbox" class="check-box" />
+                            <h2 class=""><?= $todo['title']?></h2>
+                           
+                        <?php } ?>
                         <br>
-                        <small>created in 2024</small>
+                        <small>created: <?= $todo['date_time']?></small>
+                            
                     </div>
                   
                 <?php }?>
