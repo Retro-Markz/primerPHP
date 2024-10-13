@@ -1,3 +1,8 @@
+<?php 
+require 'db_conn.php';
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,14 +21,33 @@
 
                 </form>
             </div>
+            
+            <?php
+                $todos = $conn->query("SELECT * FROM todos ORDER BY id DESC");
+            ?>
+
             <div class="show-todo-section">
-                <div class="todo-item">
-                    <input type="checkbox">
-                    <h2>This is Mark Dev</h2>
-                    <br>
-                    <small>created in 2024</small>
-                </div>
+                <?php if($todos->rowCount() === 0) { ?>
+                    <div class="todo-item">
+                        <input type="checkbox">
+                        <h2>This is Mark Dev</h2>
+                        <br>
+                        <small>created in 2024</small>
+                    </div>
+                <?php } ?>
                 
+                <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) {?>
+                    <div class="todo-item">
+
+                        <span id="<?= $todo['id'];?>" 
+                        class="remove-to-do">x</span>
+                        <input type="checkbox">
+                        <h2><?= $todo['title']?></h2>
+                        <br>
+                        <small>created in 2024</small>
+                    </div>
+                  
+                <?php }?>
             </div>
         </div>
 </body>
