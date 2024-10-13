@@ -1,12 +1,12 @@
 <?php
     
-$sName = 'localhost';
+$sName = "localhost";
 $uName = "root";
-$pass = 1234;
+$pass = "1234";
 $db_name = "todolist";
 
 try{
-    $conn = new PDO("mysql:host=$sname;db_name=$db_name;", 
+    $conn = new PDO("mysql:host=$sName;dbname=$db_name;", 
                     $uName, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "DB connected!";
